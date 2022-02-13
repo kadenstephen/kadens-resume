@@ -1,0 +1,104 @@
+
+picture {
+    width: 100%;
+}
+:root {
+ --bodytext: #444;
+ --lightblue:#25CCF7; 
+ --darkgray:#2C3A47;
+ --sandstone:#F8EFBA;
+}
+body {
+    font-family:'Source Sans Pro', sans-serif;
+    color: var(--bodytext);
+    line-height: 2em;
+}
+main {
+    margin: 0 auto;
+    padding: 0 1rem;
+    max-width: 50rem;
+}
+
+h1 {
+    font-family:'DM Sans', sans-serif;
+    color: var(--darkgray);
+    font-size: 60px;
+}
+
+h2 {
+    font-family:'DM Sans', sans-serif;
+    color: var(--darkgray)
+}
+h3 {
+    font-family:'DM Sans', sans-serif;
+    color: var(--darkgray)
+}
+.navigate {
+    font-family:'Open Sans', sans-serif;
+}
+
+a {
+    color: darkcyan;
+    transition: background-color .5s ;
+}
+
+a:hover {
+    background-color: gold;
+}
+
+.button {}
+
+
+/* CSS */
+.button {
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
+}
+
+.button:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 13px 50px 13px;
+  }
+}
+
+.non-main {
+    padding: 1rem;
+}
+.svg-logo {
+     stroke: blue;
+     stroke-width: 5;
+    stroke-linecap:round 
+}
+
+.svg-phone {
+    height: 18px;
+    width: 18px;
+}
+            
