@@ -1,7 +1,11 @@
 
-picture {
+img {
+    display: block;
     width: 100%;
+    height: auto;
+
 }
+
 :root {
  --bodytext: #444;
  --lightblue:#25CCF7; 
@@ -13,6 +17,41 @@ body {
     color: var(--bodytext);
     line-height: 2em;
 }
+
+.text-overlay{
+    position: relative;
+    width: 2000px;
+    height: auto;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+.overlay-title {
+    position: absolute;
+    top: 0px;
+    left: 16px;
+    color: white;
+    background-color: rgb(22, 224, 214);
+   
+}
+
+.overlay-subtitle {
+    position: absolute;
+    top: 100px;
+    left: 16px;
+    color: white;
+    background-color: rgb(22, 224, 214);
+
+}
+
+.portrait {
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right:auto;
+}
+
 main {
     margin: 0 auto;
     padding: 0 1rem;
@@ -45,9 +84,6 @@ a {
 a:hover {
     background-color: gold;
 }
-
-.button {}
-
 
 /* CSS */
 .button {
@@ -91,6 +127,49 @@ a:hover {
 .non-main {
     padding: 1rem;
 }
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 250px;
+  height: auto;
+  display: inline-block;
+    margin-right: 20px;
+    display: flex;
+
+
+}
+
+.card__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: none;
+    transition: .5s ease;
+    background-color: #393839;
+  }
+  .card:hover .card__overlay {
+    opacity: 1;
+  }
+.card:hover::after {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    background-color: black;
+}
+
+.card .h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right:0;
+
+}
+
 .svg-logo {
      stroke: blue;
      stroke-width: 5;
