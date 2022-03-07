@@ -9,7 +9,10 @@ img {
     height: auto;
 
 }
-
+picture {
+   height: 100vh;
+   object-fit: cover;
+}
 :root {
  --bodytext: #444;
  --lightblue:#25CCF7; 
