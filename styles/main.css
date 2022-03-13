@@ -6,10 +6,9 @@ html {
 }
 
 img {
-    display: block;
-    width: 100%;
-    height: auto;
-
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 :root {
@@ -24,6 +23,8 @@ body {
     color: var(--bodytext);
     line-height: 2em;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .hero-image {
@@ -32,26 +33,76 @@ body {
     height: auto;
     margin-left:auto;
     margin-right:auto;
+    position: relative;
+    transition: opacity 300ms ease
+}
 
+.hero-image .text-overlay {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  background: rgb(190, 196, 202);
+}
+
+.hero-image .text-overlay:hover {
+  opacity: .75;
+
+}
+
+.hero-image:hover {
+  background: lightslategray;
+  
 }
 
 .overlay-title {
     Position: absolute;
     font-size: 3rem;
-    top: 0px;
-    left: 16px;
     color: white;
     background-color: none;
-   
+    display: flex;
+  
 }
 
-.overlay-subtitle {
-    position: absolute;
-    font-size: 1.5rem;
-    top: 100px;
-    left: 16px;
-    color: white;
-    background-color: none;
+a {
+  color: darkcyan;
+  transition: background-color .5s ;
+}
+
+a:hover {
+  background-color: rgb(253, 237, 95);
+  font-size: 1.5rem;
+}
+
+ul {
+  font-family:'Open Sans', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  gap: 5rem;
+
+}
+
+.about-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+
+}
+
+.form-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
 
 }
 
@@ -63,16 +114,30 @@ body {
 }
 
 main {
-    margin: 0 auto;
-    padding: 0 1rem;
-    max-width: 50rem;
-    display: block;
+    padding: 1rem;
+    max-width: 80rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  background-color:lightslategray;
+  width: 100vw; 
 }
 
 h1 {
     font-family:'DM Sans', sans-serif;
     color: var(--darkgray);
     font-size: 60px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
 }
 
 h2 {
@@ -84,24 +149,10 @@ h3 {
     color: var(--darkgray)
 }
 
-.navigate {
-    font-family:'Open Sans', sans-serif;
-}
-
-a {
-    color: darkcyan;
-    transition: background-color .5s ;
-}
-
-a:hover {
-    background-color: rgb(22, 224, 214);
-    font-size: 1.5rem;
-}
-
-/* CSS */
 .button {
   font-size: 16px;
   font-weight: 200;
+  color: white;
   letter-spacing: 1px;
   padding: 13px 20px 13px;
   outline: 0;
@@ -116,7 +167,7 @@ a:hover {
 
 .button:after {
   content: "";
-  background-color: rgb(163, 163, 255);
+  background-color: rgb(43, 137, 192);
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -131,10 +182,28 @@ a:hover {
   left: 0px;
 }
 
-@media (min-width: 768px) {
-  .button {
-    padding: 13px 50px 13px;
-  }
+.panel {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.panel .text-wrapper1 {
+  flex: 0 1 50%;
+
+}
+.panel .image-wrapper {
+  flex: 0 1 50%;
+  order: 0;
+  max-width: 30rem;
+  padding: 3rem;
+
+}
+.panel h2 h3 {
+  margin-top: 0;
+
+}
+.panel .left {
+  order: -1;
 }
 
 .non-main {
@@ -152,6 +221,7 @@ a:hover {
     width: 60rem;
     height: auto;
     justify-content: center;
+    flex-direction: row;
 
   }
 
@@ -169,7 +239,7 @@ a:hover {
 
   .card:hover {
     background: var(--lightblue);
-    transform: rotate(15deg)
+    transform: rotate(8deg)
     
   }
   
@@ -228,6 +298,73 @@ a:hover {
   100% { transform: rotate(360deg); }
 
 }
+
+@media (max-width: 1023px ) {
+  .cards {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 15rem;
+    height: auto;
+  }
+  .card {
+    flex: 1 1 40%; 
+    width: 200px;
+  }
+
+
+}
+
+@media (max-width: 767px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    height: auto;
+    }
+  body {
+    font-size: .75rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .overlay-title {
+    font-size: 2rem;
+  }
+  .text-overlay {
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .button {
+    padding: 13px 50px 13px;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .panel h2 h3 {
+    margin-top: 0;
+  
+  }
+  .panel .image-wrapper {
+    order: -1;
+    width: 400px;
+    display: flex;
+  
+  }
+
+  
+}
+
+
+
 
 
 
