@@ -35,27 +35,34 @@
      <div class= "text-overlay">
      <h1 class= "overlay-title">Welcome to Kaden's Life </h1>
     </div>
-
 </div>
-   
-    
-    <header>
 
-        <div class="navigate">
-            <nav>
-            <ul>
-                <li> <a href="">Home</a> </li>
-                <li> <a href="./about/index.html">About</a></li>
-                <li> <a href="./form/index.html">Contact</a> </li>
-            </ul>
-            </nav>
-     
+    <header>
+        
+    <div class="main-menu">
+        <div class="menu-icon">
+          <svg viewbox="0 0 60 60" width="60px" height="60px">
+            <line x1="5%" y1="50%" x2="95%" y2="50%" />
+            <line x1="5%" y1="50%" x2="95%" y2="50%" />
+          </svg>
         </div>
+      
+    <nav>
+        <h2 class="hidden">Main Menu</h2>
+        <ul>
+            <li><a>Home</a></li>
+            <li><a href="form/">Form</a></li>
+            <li><a href="about/">About</a></li>
+            <li><a href="#">Adopt</a></li>
+            <li><a href="#">Share</a></li>
+        </ul>
+    </nav>
+    </div>
 
     </header>
 
 <aside>
-    <h1>Kaden L. Stephen</h1>
+    <h2 class="kadenlstephen">Kaden L. Stephen</h2>
 </aside>
 
 <main>
@@ -80,7 +87,7 @@
         <button class="button" >Learn More About Him</button>
     </div>
     <div class="image-wrapper">
-        <img src="img/graduation-photo.jpg">
+        <img src="img/graduation-photo.jpg" alt="gradpic">
     </div>
     </article>
     
@@ -94,7 +101,7 @@
         <button class="button" >Read More About His Kiribati Adventure</button>
         </div>
         <div class="image-wrapper left">
-            <img src="img/scpier.jpg">
+            <img src="img/scpier.jpg" alt="sanclemente-pier">
         </div>
     </article>
 
@@ -177,11 +184,14 @@
         </div>
    
     </footer>
-
-   
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+      });
+    });
+    </script>
     <!-- heyo, I actually enjoyed making this website so that's cool. -->
-
-
 </body>
 
 </html>
