@@ -27,6 +27,7 @@ img {
 
 body {
     font-family:'Source Sans Pro', sans-serif;
+    font-size: .75rem;
     color: var(--bodytext);
     line-height: 2em;
     margin: 0;
@@ -37,8 +38,7 @@ body {
 
 .hero-image {
     position: relative;
-    width: 100vw;
-    height: auto;
+    width: 100%;
     margin-left:auto;
     margin-right:auto;
     transition: opacity 300ms ease
@@ -88,7 +88,6 @@ a {
 
 a:hover {
   background-color: rgb(253, 237, 95);
-  font-size: 1.5rem;
 }
 
 /*main menu paste */
@@ -146,6 +145,9 @@ a:hover {
   transform: rotate(-135deg);
 }
 
+.hidden {
+  display: none;
+}
 /*end main menu */
 
 nav {
@@ -191,8 +193,6 @@ nav a[href]:hover {
   color: var(--space-cadet-light);
 }
 
-END STUFF
-
 .about-nav {
   display: flex;
   flex-direction: row;
@@ -216,9 +216,7 @@ END STUFF
 main {
     padding: 1rem;
     max-width: 80rem;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+
 }
 
 aside {
@@ -231,20 +229,14 @@ aside {
 }
 
 .kadenlstephen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: center;
+  text-align: center;
 }
 
 h1 {
     font-family:'DM Sans', sans-serif;
     color: var(--darkgray);
     font-size: 60px;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    justify-content: center;
+    text-align: center;
 }
 
 h2 {
@@ -291,27 +283,21 @@ h3 {
 
 .panel {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 2rem;
 }
-.panel .text-wrapper1 {
-  flex: 0 1 50%;
 
-}
-.panel .image-wrapper {
-  flex: 0 1 50%;
-  order: 0;
-  max-width: 30rem;
-  padding: 3rem;
-
-}
 .panel h2 h3 {
   margin-top: 0;
 
 }
-.panel .left {
+.panel .image-wrapper {
   order: 1;
+  min-width: 400px;
+  display: flex;
+
 }
+
 
 .non-main {
     padding: 1rem;
@@ -324,17 +310,8 @@ h3 {
   
   .cards {
     display: flex;
+    flex-direction: column;
     gap: 30px;
-    width: 60rem;
-    height: auto;
-    justify-content: center;
-    flex-direction: row;
-
-  }
-
-  .cards p {
-    margin: 0;
-
   }
 
   .card {
@@ -366,11 +343,6 @@ h3 {
   }
   
   .cards p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
     margin-top: 0.25rem;
     font-size: 2rem;
   }
@@ -404,73 +376,6 @@ h3 {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 
-}
-
-@media (max-width: 1023px ) {
-  .cards {
-    display: flex; 
-    flex-direction: row;
-    flex-wrap: wrap;
-    height: auto;
-  }
-  .card {
-    flex: 1 1 40%; 
-    width: 200px;
-   
-  }
-
-
-}
-
-@media (max-width: 767px) {
-  .cards {
-    display: flex;
-    flex-direction: column;
-    width: 15rem;
-    height: auto;
-    }
-  body {
-    font-size: .75rem;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  .overlay-title {
-    font-size: 2rem;
-  }
-
-  .text-overlay {
-    font-size: 2rem;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .button {
-    padding: 13px 50px 13px;
-  }
-
-  .panel {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .panel h2 h3 {
-    margin-top: 0;
-  
-  }
-  .panel .image-wrapper {
-    order: 1;
-    width: 400px;
-    display: flex;
-  
-  }
-
-  
 }
 
 
@@ -531,8 +436,81 @@ nav a[href]:hover::after {
   transform: scale(1);
   transform-origin: left;
 }
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+.card {
+  flex: 1 1 40%;
+}
+
+body {
+  font-size: .75rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.overlay-title {
+  font-size: 2rem;
+}
+
+.text-overlay {
+  font-size: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  padding: 13px 50px 13px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.panel .text-wrapper1 {
+  flex: 0 1 50%;
+
+}
+.panel .image-wrapper {
+  flex: 0 1 50%;
+  order: 0;
+  max-width: 30rem;
+  padding: 3rem;
+
+}
+.panel h2 h3 {
+  margin-top: 0;
+
+}
+.panel .left {
+  order: 1;
+}
    
+}
+
+
+
+@media (min-width: 1023px ) {
+  .cards {
+    display: flex; 
+    flex-wrap: nowrap;
+  }
+  .card {
+    flex: 1 1 40%; 
+   
+  }
+
+
 }
 
 
