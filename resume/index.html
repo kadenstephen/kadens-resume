@@ -5,9 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="../styles/main.css" />
 </head>
+
+
 <body class="resume-page">
-    
-    
+    <header>
+        
+        <div class="main-menu">
+            <div class="menu-icon">
+              <svg viewbox="0 0 60 60" width="60px" height="60px">
+                <line x1="5%" y1="50%" x2="95%" y2="50%" />
+                <line x1="5%" y1="50%" x2="95%" y2="50%" />
+              </svg>
+            </div>
+          
+          <nav>
+            <h2 class="hidden">Main Menu</h2>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/form/index.html">Contact</a></li>
+                <li><a href="/about/index.html">About</a></li>
+                <li><a>Resume</a></li>
+            </ul>
+          </nav>
+        </div>
+  
+      </header>
+
+      <script>
+        window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+        });
+      });
+    </script>
+
 </body>
 </html>

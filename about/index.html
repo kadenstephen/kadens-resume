@@ -15,16 +15,48 @@
     <link rel="stylesheet" href="../styles/main.css" />
 </head>
 <body>
-    
+    <header>
+        
+        <div class="main-menu">
+            <div class="menu-icon">
+              <svg viewbox="0 0 60 60" width="60px" height="60px">
+                <line x1="5%" y1="50%" x2="95%" y2="50%" />
+                <line x1="5%" y1="50%" x2="95%" y2="50%" />
+              </svg>
+            </div>
+          
+          <nav>
+            <h2 class="hidden">Main Menu</h2>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/form/index.html">Contact</a></li>
+                <li><a>About</a></li>
+                <li><a href="/resume/index.html">Resume</a></li>
+            </ul>
+          </nav>
+        </div>
+  
+      </header>
+
     <article>
-    <h1>About Kaden</h1> 
-    <h3>Background</h3>
-    <p> Kaden was born on March 6, 2001, in Mesa, Arizona. Soon after, his parents moved all around California to locations such as Roseville, Carlsbad, Thousand Oaks, and now San Clemente.
+
+        <h1>About Kaden</h1> 
+            <h3>Background</h3>
+                <p> Kaden was born on March 6, 2001, in Mesa, Arizona. Soon after, his parents moved all around California to locations such as Roseville, Carlsbad, Thousand Oaks, and now San Clemente.
         Kaden's father, Eric Stephen, was remarried in 2012 after his mother, Briana, passed away of brain cancer in May of 2011. Kaden is now the second oldest of seven children. After graduating from San Clemente High School in 2019,
         Kaden decided to serve a mission for The Church of Jesus Christ of Latter Day Saints, in the south pacific islands of Kiribati.
         Two years later, upon returning from the islands, Kaden then began attending BYU. He currently is on track to major in Finance and minor in Information Systems.
+                </p>
 
-    </p>
     </article>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+      document.querySelector(".menu-icon").addEventListener("click", () => {
+        document.querySelector(".main-menu").classList.toggle("menu-show");
+        });
+      });
+    </script>
+
 </body>
 </html>
