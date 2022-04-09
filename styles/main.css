@@ -550,7 +550,6 @@ textarea:focus {
 /* end form page */
 
 .loader {
-  display: none;
   margin: auto;
   border: 20px solid #EAF0F6;
   border-radius: 50%;
