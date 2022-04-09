@@ -88,7 +88,8 @@ a {
 }
 
 a:hover {
-  background-color: rgb(253, 237, 95);
+  color: white;
+  background-color: rgb(43, 137, 192);
 }
 
 /*main menu paste */
@@ -191,7 +192,7 @@ nav a:not([href]) {
 }
 
 nav a[href]:hover {
-  color: var(--space-cadet-light);
+  color: var(--floral-white);
 }
 
 .about-nav {
@@ -352,17 +353,6 @@ h3 {
   .cards .card-overlay:hover {
     opacity: .75;
   }
-  
-.svg-logo {
-     stroke: blue;
-     stroke-width: 5;
-    stroke-linecap:round 
-}
-
-.svg-phone {
-    height: 18px;
-    width: 18px;
-}
 
 
 /* start of form page */
@@ -619,14 +609,14 @@ nav a::after {
   height: 3px;
   margin-left: -6px;
   margin-top: 6px;
-  background-color: var(--space-cadet-light);
+  background-color: var(--floral-white);
   transform: scale(0);
   transition: transform 200ms ease-in, color 300ms ease-in;
   transform-origin: right;
 }
 
 nav a[href]:hover {
-  color: var(--space-cadet-light);
+  color: var(--floral-white);
 }
 
 nav a[href]:hover::after {
