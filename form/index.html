@@ -49,7 +49,7 @@
             </g>
           </svg>
                    
-      <form>
+      <form name="contact-him">
             
             <label for="name">Full name:</label>
             <input type="text" name="name" id="name">
@@ -93,8 +93,8 @@
       
             </fieldset>
       
-            <label for="haiku">Tell Kaden why you'd like to meet with him:</label>
-            <textarea name="haiku" id="haiku" rows="10" placeholder="1-2 sentences"></textarea>
+            <label for="details">Tell Kaden why you'd like to meet with him:</label>
+            <textarea name="details" id="details" rows="10" placeholder="1-2 sentences"></textarea>
       
             <button class="form-button" type="submit">S U B M I T</button>
       
@@ -106,6 +106,8 @@
 
   </div>
 
+  <!-- link to google sheets -->
+  <!-- https://script.google.com/macros/s/AKfycbxVtvYR2lzm27Dcb9Io5X63gAKkIXLUQBJnV1aat58qCPahceUj/exec -->
   <script>
     window.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".menu-icon").addEventListener("click", () => {
@@ -113,6 +115,82 @@
     });
   });
   </script>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxVtvYR2lzm27Dcb9Io5X63gAKkIXLUQBJnV1aat58qCPahceUj/exec'
+
+// add a name attribute to your <form> and enter its value here 
+const form = document.forms['contact-him']
+
+// enter the value of your checkboxes' name attribute
+const checkboxName = "interests"
+
+// set these to your loader and message classes
+const loading = document.querySelector('.loader')
+const successMessage = document.querySelector('.success-message')
+const errorMessage = document.querySelector('.error-message')
+
+// this will run when the submit button is clicked
+form.addEventListener('submit', event => {
+  // stops default form handling so we can submit it to Google Sheets instead
+  event.preventDefault()
+
+  // show the loader and hide form
+  form.classList.add('hidden')
+  loading.classList.remove('hidden')
+
+  // collect the form values into an object that can be sent to Google Sheets
+  let fd = new FormData(form);
+
+  /* If more than one checkbox is selected, the form will have multiple keys 
+     (checkbox name). Only the first checkbox value would be entered into 
+     Google Sheets. 
+     To get around this, concat all the selected checkbox values into a single 
+     string and send that value */
+
+  // grab all the selected values stored as key/value pairs of checkboxName/value
+  let checkBoxValues = fd.getAll(checkboxName)
+
+  // then delete them from the formData object
+  fd.delete(checkboxName);
+
+  // create a string
+  let text = ""
+  if (checkBoxValues.length <= 2) {
+    text = checkBoxValues.join(" and ")
+  } else {
+    let end = checkBoxValues.pop();
+    text = checkBoxValues.join(", ");
+    text += ", and " + end;
+  }
+  // add the key/value pair checkboxName/text back to the formData object
+  fd.append(checkboxName, text);
+
+  // use an asynchronous request to POST your formData object to your Google Sheet
+  fetch(scriptURL, {
+      method: 'POST',
+      body: fd,
+    })
+    // if response ok, show success message and hide loader, else display error
+    .then(response => {
+      loading.classList.add('hidden')
+      if (response.ok) {
+        console.log('Success!', response)
+        successMessage.classList.remove('hidden')
+      } else {
+        console.log("Something has gone terribly wrong and I'm rather afraid I don't know what to do.",
+          response)
+        errorMessage.classList.remove('hidden')
+      }
+    })
+    // if error, show error message and hide loader
+    .catch(error => {
+      console.error('Error!', error.message)
+      errorMessage.classList.remove('hidden')
+      loading.classList.add('hidden')
+    })
+})
+</script>
 
 </body>
 </html>
