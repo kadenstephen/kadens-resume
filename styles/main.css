@@ -11,6 +11,10 @@ img {
   display: block;
 }
 
+video {
+  width: 100vw;
+}
+
 :root {
  --bodytext: #444;
  --lightblue:#25CCF7; 
@@ -72,6 +76,7 @@ body {
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
+  font-size: 1.5rem;
 
 }
 
@@ -524,6 +529,10 @@ textarea:focus {
 }
 
 @media (min-width: 500px) {
+  .overlay-title:hover {
+    font-size: 2rem;
+  }
+
   section {
     max-width: 40rem;
     align-self: center;
@@ -579,6 +588,9 @@ textarea:focus {
 
 @media (min-width: 601px) {
 
+  .overlay-title:hover {
+    font-size: 3rem;
+  }
 /* main menu css */ 
   .main-menu .menu-icon {
     display: none;
@@ -708,6 +720,10 @@ h2 {
     flex: 1 1 40%; 
    
   }
+.overlay-title:hover {
+  font-size: 5rem;
+}
+
 
  
 }
