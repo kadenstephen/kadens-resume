@@ -223,6 +223,7 @@ nav a[href]:hover {
 main {
     padding: 1rem;
     max-width: 80rem;
+    font-size: 1rem;
 
 }
 
@@ -359,6 +360,27 @@ h3 {
     opacity: .75;
   }
 
+  .button-pdf .resume-download {
+    position: relative;
+    justify-self: center;
+    color: white;
+    margin: 1.5rem 0;
+    width: 100px;
+  
+    border: none;
+    background-color: transparent;
+    box-shadow: 0 0 0 1px black;
+    padding-right: 50%;
+    padding-left: 50%;
+    transition: 0.2s ease-in;
+    
+  }
+  .button-pdf, .resume-download:hover {
+    background-color: #107dac;
+    color: white;
+    border: 1.5px solid black;
+    cursor: pointer;
+  }
 
 /* start of form page */
 
